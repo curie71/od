@@ -22,10 +22,10 @@ name/serial
 
 
 【1】跳转注释
-JGE 前>=后    Jump if not greater or equal
-JG 前>后      Jump if not greater
-JLE 前<=后    Jump if not less or equal
-JL 前<后      Jump if not less
+JGE 前>=后    Jump if  greater or equal
+JG 前>后      Jump if  greater
+JLE 前<=后    Jump if  less or equal
+JL 前<后      Jump if  less
 JNE 前不等于后 Jump if not equal
 JE 前等于后   Jump if equal
 INC 自增1     increase
