@@ -1,7 +1,68 @@
 一.安装ubuntu
 电脑的原装系统基本都是windows或者mac，想要使用Linux系统，你可以选择安装双系统，或者安装虚拟机，来支持linux系统，这里安装的是Ubuntu
-虚拟机环境
+1.虚拟机环境
 首先要从网上下载ubuntu虚拟光盘，网上资源很多的。
 其次虚拟机可以从VM Ware和Oracle VM Virtualbox中选择一个，提醒一句，要知道出快照和克隆的区别
+当安装到选择语言时，请全部选择English，不然进入命令行会出现乱码，正好适应一下英文环境
+磁盘分配请不要小于20G，自动分区抑或手动分区皆可
+2.双系统环境
+
+
+二.python环境
+按Ctrl+Alt+F1进入命令行，输密码时是不可见的，用户进入后
+
+1.输入：（更新系统资源）
+sudo apt-get update  
+sudo apt-get upgrade
+
+2.输入：（查看python版本）
+python --version
+python3 --version
+
+3.配置软件仓库，因为python 3.6 新版没有发布到ubuntu的正式仓库中，咱们通过第3方仓库来做
+输入：
+sudo add-apt-repository ppa:jonathonf/python-3.6
+
+4.检查系统软件包并安装 python 3.6
+sudo apt-get update
+sudo apt-get install python3.6
+
+5.查看python版本信息（现在在你的系统中已经有3个python版本了）
+python --version
+python3 --version
+python3.6 --version
+
+6.新安装的3.6版本需要输入 python3.6才能使用，那能不能配置我只输入python3时就默认使用3.6版本呢，当然可以，执行以下命令
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2
+sudo update-alternatives --config python3
+
+5、确认一下
+python3 --version
+
+6.python3.6安装好后可能在用户登陆时出现 "apk_pkg"报错
+输入：（流程走完）
+     sudo apt-get remove --purge python-apt  
+     sudo apt-get install python-apt -f  
+     sudo find / -name "apt_pkg.cpython-35m-x86_64-linux-gnu.so"  
+     cd /usr/lib/python3/dist-packages/  
+     sudo cp apt_pkg.cpython-35m-x86_64-linux-gnu.so apt_pkg.cpython-36m-x86_64-linux-gnu.so   
+     
+7.安装pip且更新到pip9以上 
+
+
+
+三.vim环境
+
+
+
+
+
+
+
+
+
+
+
 
 
