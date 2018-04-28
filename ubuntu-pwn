@@ -71,17 +71,57 @@ sudo pip3 install --upgrade pip
 1.安装git
 输入：(进入根目录）
 sudo -i
-    cd ~  
-    sudo apt-get install git  
+add-apt-repository ppa:git-core/ppa
+apt-get update
+apt-get install git 
+git --version 
+
+2.配置vim成7.4以上（为了方便安装vim的各种IDE插件）
+输入：
+sudo add-apt-repository ppa:jonathonf/vim  
+sudo apt update 
+sudo apt install vim  
+
+3.vim支持python3
+输入:
+vim --version 
+看出-python 和 -python3，这说明vim默认不支持python
+
+接下来我们安装vim-nox
+输入：
+sudo apt-get install vim-nox
+返回桌面，打开终端
+sudo update-alternatives --config vim
+查看，这时已经有两个版本的vim可以选择
+
+当我们选择/usr/bin/vim.basic 版本时，也就是vim8.0预装版本，是不支持python和python3的，我们可以从下图看出
+
+当我们选择/usr/bin/vim.nox版本时，我们可以看出此时vim已经可以支持+python3了。到这里我们已经完成了一半的任务，接下来
+
+我们将使得vim8.0也能支持python
+
+终端输入 sudo apt-get install vim-nox-py2
+并使用sudo update-alternatives --config vim查看发现selection中并没有出现我们刚下载的
+
+vim-nox-py2，可选的只有vim.basic和vim.nox，可能的原因是vim识别不了vim.nox-py2，接下来我们将验证这个猜测。
 
 
-C：配置vim成8.0（为了方便安装vim的各种IDE插件）
 
-[plain] view plain copy
+如果我们要使得vim8.0支持python解决方法有两种(注意python也就是python2和python3是不能同时存在的，后面我们可以看到
 
-    sudo add-apt-repository ppa:jonathonf/vim  
-    sudo apt update  
-    sudo apt install vim  
+在我的系统中python2是python2.7.6版本的，python3是python3.4版本的)。
+
+第一种是将原来的vim.nox备份将vim.nox-py改名为vim.nox；
+
+第二种是是建立软链接，将原来的vim.nox改为vim.nox-support-py3，vim.nox-py2改为vim.nox-support-py2。
+
+从而当我们想要vim8.0支持python则建立软链接ln -s vim.nox-support-py2 vim.nox，并使用vim --version | grep python来验证
+
+当我们想要vim8.0支持python3时，我们只需要先删除vim.nox然后再软链接 ln -s vim.nox-support-py3 vim.nox，同时并使用
+
+vim --version | grep python来验证是否切换成功。从图中我们可以看到切换成功了。至此，我们已经实现了vim8.0支持python并
+
+可以切换个支持的python版本。 
 
 
 
