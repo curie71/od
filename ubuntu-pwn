@@ -5,11 +5,13 @@
 其次虚拟机可以从VM Ware和Oracle VM Virtualbox中选择一个，提醒一句，要知道出快照和克隆的区别
 当安装到选择语言时，请全部选择English，不然进入命令行会出现乱码，正好适应一下英文环境
 磁盘分配请不要小于20G，自动分区抑或手动分区皆可
+（虚拟机好处在于，你可以同时打开win和ubuntu的软件来调试）
 2.双系统环境
 
 
 二.python环境
 按Ctrl+Alt+F1进入命令行，输密码时是不可见的，用户进入后
+（python2是pwn主要使用的语言，但现在主流开始使用python3，所以都安装）
 
 1.输入：（更新系统资源）
 sudo apt-get update  
@@ -48,12 +50,38 @@ python3 --version
      cd /usr/lib/python3/dist-packages/  
      sudo cp apt_pkg.cpython-35m-x86_64-linux-gnu.so apt_pkg.cpython-36m-x86_64-linux-gnu.so   
      
-7.安装pip且更新到pip9以上 
+7.安装 pip2 和 pip3 且更新至最新版本
+输入：（pip2）
+sudo apt-get install python-pip python-dev build-essential
+输入：（pip3）
+sudo apt-get install pip3
+输入：（pip2升级）
+sudo pip install --upgrade pip
+输入：（pip3升级）
+sudo pip3 install --upgrade pip
+
+出现"Successfully installed pip-9.0.1"之类则成功
+如果失败，则需要增加 额外仓库 或者 上网下载安装包安装
+
+8.换源（推荐）
 
 
 
 三.vim环境
+1.安装git
+输入：(进入根目录）
+sudo -i
+    cd ~  
+    sudo apt-get install git  
 
+
+C：配置vim成8.0（为了方便安装vim的各种IDE插件）
+
+[plain] view plain copy
+
+    sudo add-apt-repository ppa:jonathonf/vim  
+    sudo apt update  
+    sudo apt install vim  
 
 
 
