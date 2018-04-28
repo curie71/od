@@ -1,3 +1,5 @@
+菜文在此，任何问题请联系 
+正义铁拳QQ：867792072 亚力克斯QQ：2827894432
 一.安装ubuntu
 电脑的原装系统基本都是windows或者mac，想要使用Linux系统，你可以选择安装双系统，或者安装虚拟机，来支持linux系统，这里安装的是Ubuntu
 1.虚拟机环境
@@ -8,6 +10,7 @@
 （虚拟机好处在于，你可以同时打开win和ubuntu的软件来调试）
 2.双系统环境
 
+waiting
 
 二.python环境
 按Ctrl+Alt+F1进入命令行，输密码时是不可见的，用户进入后
@@ -65,6 +68,7 @@ sudo pip3 install --upgrade pip
 
 8.换源（推荐）
 
+waiting
 
 
 三.vim环境
@@ -76,53 +80,93 @@ apt-get update
 apt-get install git 
 git --version 
 
-2.配置vim成7.4以上（为了方便安装vim的各种IDE插件）
-输入：
-sudo add-apt-repository ppa:jonathonf/vim  
-sudo apt update 
-sudo apt install vim  
-
-3.vim支持python3
+2.vim支持python3
 输入:
 vim --version 
 看出-python 和 -python3，这说明vim默认不支持python
 
-接下来我们安装vim-nox
+3.卸载原装vim
+sudo apt-get remove --purge vim
+sudo apt-get remove --purge vim-gtk vim-doc cscope
+sudo apt-get clean
+
+4.接下来我们安装vim-nox
 输入：
 sudo apt-get install vim-nox
-返回桌面，打开终端
+返回桌面，按Ctrl+Alt+T 打开命令终端
+输入:
+vim –version |grep python 
+查看vim是否支持python
+
+安装py2包，在命令终端下输入:
+sudo apt-get install vim-nox-py2。
+
+可以再次用
+vim –version|grep python 
+查看此时vim是否支持python，若支持到此为止，若不支持，请执行
+
+终端输入：
 sudo update-alternatives --config vim
-查看，这时已经有两个版本的vim可以选择
+查看发现selection，输入数字来改变支持
 
-当我们选择/usr/bin/vim.basic 版本时，也就是vim8.0预装版本，是不支持python和python3的，我们可以从下图看出
+vim --version 来验证是否切换成功
 
-当我们选择/usr/bin/vim.nox版本时，我们可以看出此时vim已经可以支持+python3了。到这里我们已经完成了一半的任务，接下来
+5.增强vim（完善IDE）
+安装ctags：
+sudo apt-get install ctags
 
-我们将使得vim8.0也能支持python
+安装一些必备程序：
+sudo apt-get install xclip vim-gnome astyle python-setuptools
 
-终端输入 sudo apt-get install vim-nox-py2
-并使用sudo update-alternatives --config vim查看发现selection中并没有出现我们刚下载的
+python代码格式化工具：
+sudo easy_install -ZU autopep8
+sudo ln -s /usr/bin/ctags /usr/local/bin/ctags
 
-vim-nox-py2，可选的只有vim.basic和vim.nox，可能的原因是vim识别不了vim.nox-py2，接下来我们将验证这个猜测。
+clone配置文件：
+cd ~/ && git clone git://github.com/ma6174/vim.git
+mv ~/vim ~/.vim
+mv ~/.vim/.vimrc ~/
 
+clone bundle 程序：
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+打开vim并执行bundle程序:（输入" ：BundleInstall "执行，上网查看具体vim用法）
+BundleInstall
 
-如果我们要使得vim8.0支持python解决方法有两种(注意python也就是python2和python3是不能同时存在的，后面我们可以看到
+重新打开vim即可看到效果
 
-在我的系统中python2是python2.7.6版本的，python3是python3.4版本的)。
+四.pwn相关软件安装
+1.ida pro在win里功能比较强，不建议安装
 
-第一种是将原来的vim.nox备份将vim.nox-py改名为vim.nox；
+2.安装pwndbg
+输入：
+git clone https://github.com/pwndbg/pwndbg
+cd pwndbg
+./setup.sh
 
-第二种是是建立软链接，将原来的vim.nox改为vim.nox-support-py3，vim.nox-py2改为vim.nox-support-py2。
+3.安装Binutils
+输入：
+git clone https://github.com/Gallopsled/pwntools-binutils
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:pwntools/binutils
+sudo apt-get update
+sudo apt-get install binutils-arm-linux-gnu
 
-从而当我们想要vim8.0支持python则建立软链接ln -s vim.nox-support-py2 vim.nox，并使用vim --version | grep python来验证
+4、安装Capstone（反汇编框架）
+输入：
+git clone https://github.com/aquynh/capstone
+cd capstone
+make
+sudo make install
 
-当我们想要vim8.0支持python3时，我们只需要先删除vim.nox然后再软链接 ln -s vim.nox-support-py3 vim.nox，同时并使用
+5.安装pwntools
+输入：
+sudo apt-get update
+sudo apt-get install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential
+sudo pip install --upgrade pip
+sudo pip install --upgrade pwntools
 
-vim --version | grep python来验证是否切换成功。从图中我们可以看到切换成功了。至此，我们已经实现了vim8.0支持python并
-
-可以切换个支持的python版本。 
-
+五.pwn插件
 
 
 
