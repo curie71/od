@@ -131,12 +131,17 @@ clone bundle 程序：
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 打开vim并执行bundle程序:（输入" ：BundleInstall "执行，上网查看具体vim用法）
-BundleInstall
+等到 Done!完成
 
 重新打开vim即可看到效果
 
 四.pwn相关软件安装
 1.ida pro在win里功能比较强，不建议安装
+
+先安装wine
+sudo apt-get install  wine
+若在安装中遇到依赖问题，先安装依赖文件
+sudo apt-get install 依赖文件名
 
 2.安装pwndbg
 输入：
