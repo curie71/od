@@ -57,7 +57,7 @@ python3 --version
 输入：（pip2）
 sudo apt-get install python-pip python-dev build-essential
 输入：（pip3）
-sudo apt-get install pip3
+sudo apt-get install python3-pip
 输入：（pip2升级）
 sudo pip install --upgrade pip
 输入：（pip3升级）
