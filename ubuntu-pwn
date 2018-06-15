@@ -12,6 +12,10 @@
 
 waiting
 
+
+
+
+
 二.python环境
 按Ctrl+Alt+F1进入命令行，输密码时是不可见的，用户进入后
 （python2是pwn主要使用的语言，但现在主流开始使用python3，所以都安装）
@@ -66,9 +70,7 @@ sudo pip3 install --upgrade pip
 出现"Successfully installed pip-9.0.1"或其以上版本则成功
 如果失败，则需要增加 额外仓库 或者 上网下载安装包安装
 
-8.换源（推荐）
 
-waiting
 
 
 三.vim环境
@@ -135,6 +137,56 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 重新打开vim即可看到效果
 
+6.换源（推荐）
+第一步：备份原来的源文件
+输入：
+cd /etc/apt/  
+ 
+然后输入：ls
+查看源文件sources.list
+
+输入：
+sudo cp sources.list sources.list.bak
+
+就是将sources.list备份到sources.list.bak
+
+第二步：替换源（这里选用阿里云源）
+执行命令打开source.list文件
+输入：
+sudo vim /etc/apt/source.list
+
+
+把下面的复制到source.list中去，并覆盖原来的文件内容。
+
+# deb cdrom:[Ubuntu 16.04 LTS _Xenial Xerus_ - Release amd64 (20160420.1)]/ xenial main restricted
+deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties
+deb http://archive.canonical.com/ubuntu xenial partner
+deb-src http://archive.canonical.com/ubuntu xenial partner
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
+
+替换并保存
+
+第三步：更新源和软件
+sudo apt-get update 更新源  
+sudo apt-get upgrade 更新软件 
+
+
+
+
+
 四.pwn相关软件安装
 1.ida pro在win里功能比较强，不建议安装
 
@@ -170,6 +222,10 @@ sudo apt-get update
 sudo apt-get install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential
 sudo pip install --upgrade pip
 sudo pip install --upgrade pwntools
+
+ps：如果出现 timeoutError 问题，可能是没换源导致的延时，你可以重新安装或者换源
+
+
 
 五.pwn插件
 
