@@ -216,6 +216,10 @@ git clone https://github.com/pwndbg/pwndbg
 cd pwndbg
 ./setup.sh
 
+然后输入：
+gdb -q
+检验是否成功
+
 5.安装pwntools
 输入：
 sudo apt-get update
