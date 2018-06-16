@@ -195,13 +195,7 @@ sudo apt-get install  wine
 若在安装中遇到依赖问题，先安装依赖文件
 sudo apt-get install 依赖文件名
 
-2.安装pwndbg
-输入：
-git clone https://github.com/pwndbg/pwndbg
-cd pwndbg
-./setup.sh
-
-3.安装Binutils
+2.安装Binutils
 输入：
 git clone https://github.com/Gallopsled/pwntools-binutils
 sudo apt-get install software-properties-common
@@ -209,12 +203,18 @@ sudo apt-add-repository ppa:pwntools/binutils
 sudo apt-get update
 sudo apt-get install binutils-arm-linux-gnu
 
-4、安装Capstone（反汇编框架）
+3、安装Capstone（反汇编框架）
 输入：
 git clone https://github.com/aquynh/capstone
 cd capstone
 make
 sudo make install
+
+4.安装pwndbg
+输入：
+git clone https://github.com/pwndbg/pwndbg
+cd pwndbg
+./setup.sh
 
 5.安装pwntools
 输入：
