@@ -188,14 +188,7 @@ sudo apt-get upgrade 更新软件
 
 
 四.pwn相关软件安装
-1.ida pro在win里功能比较强，不建议安装
-
-先安装wine
-sudo apt-get install  wine
-若在安装中遇到依赖问题，先安装依赖文件
-sudo apt-get install 依赖文件名
-
-2.安装Binutils
+1.安装Binutils
 输入：
 git clone https://github.com/Gallopsled/pwntools-binutils
 sudo apt-get install software-properties-common
@@ -203,14 +196,14 @@ sudo apt-add-repository ppa:pwntools/binutils
 sudo apt-get update
 sudo apt-get install binutils-arm-linux-gnueabi
 
-3、安装Capstone（反汇编框架）
+2、安装Capstone（反汇编框架）
 输入：
 git clone https://github.com/aquynh/capstone
 cd capstone
 make
 sudo make install
 
-4.安装pwndbg
+3.安装pwndbg
 输入：
 git clone https://github.com/pwndbg/pwndbg
 cd pwndbg
@@ -220,7 +213,7 @@ cd pwndbg
 gdb -q
 检验是否成功
 
-5.安装pwntools
+4.安装pwntools
 输入：
 git clone https://github.com/Gallopsled/pwntools
 cd pwntools
@@ -241,11 +234,11 @@ pwn.asm("xor eax,eax")
 如果有正确输出，即说明这个功能是可以用的，到这里就算安装完成。
 
 Err1:
-fatal error: openssl/e_os2.h: 没有那个文件或目录
+fatal error: openssl/e_os2.h: 没有那个文件或目录 诸如此类缺失libssl
 要解决这个问题，只需要安装OpenSSL 开发包
 
 输入：
-apt-get install libssl-dev
+sudo apt-get install libssl-dev
 
 Err2:
 error: Installed distribution pyasn1 0.1.7 conflicts with requirement pyasn1>=0.1.8
@@ -254,7 +247,7 @@ error: Installed distribution pyasn1 0.1.7 conflicts with requirement pyasn1>=0.
 输入：
 git clone https://github.com/etingof/pyasn1
 cd pyasn1
-python setup.py install
+sudo python setup.py install
 
 
 
@@ -262,7 +255,16 @@ ps：如果出现 timeoutError 问题，可能是没换源导致的延时，你�
 
 
 
-五.pwn更多插件
+五.ida pro
+（ida pro在win里功能比较强，不建议安装）
+
+1.安装wine
+输入：
+sudo apt-get install  wine
+
+若在安装中遇到依赖问题，先安装依赖文件
+输入：
+sudo apt-get install 依赖文件名
 
 
 
