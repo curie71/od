@@ -222,16 +222,47 @@ gdb -q
 
 5.安装pwntools
 输入：
-sudo apt-get update
-sudo apt-get install python2.7 python-pip python-dev git libssl-dev libffi-dev build-essential
-sudo pip install --upgrade pip
-sudo pip install --upgrade pwntools
+git clone https://github.com/Gallopsled/pwntools
+cd pwntools
+sudo python setup.py install
+
+如果没报错，并且终端输入python进入其交互模式后，
+输入：
+import pwn
+
+回车后没报错，基本完成。
+
+这时候再尝试pwntools的asm功能
+输入：
+pwn.asm("xor eax,eax")
+
+显示： '1\xc0'
+
+如果有正确输出，即说明这个功能是可以用的，到这里就算安装完成。
+
+Err1:
+fatal error: openssl/e_os2.h: 没有那个文件或目录
+要解决这个问题，只需要安装OpenSSL 开发包
+
+输入：
+apt-get install libssl-dev
+
+Err2:
+error: Installed distribution pyasn1 0.1.7 conflicts with requirement pyasn1>=0.1.8
+把pyasn1(ASN.1 library for Python)更新即可
+
+输入：
+git clone https://github.com/etingof/pyasn1
+cd pyasn1
+python setup.py install
+
+
 
 ps：如果出现 timeoutError 问题，可能是没换源导致的延时，你可以重新安装或者换源
 
 
 
-五.pwn插件
+五.pwn更多插件
 
 
 
