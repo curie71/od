@@ -267,6 +267,14 @@ sudo apt-get install  wine
 sudo apt-get install 依赖文件名
 
 
+六.路由器漏洞分析环境
+1.安装binwalk(固件分析）
+输入：
+git clone https://github.com/devttys0/binwalk  
+cd binwalk
+sudo python setup.py install 
+sudo apt-get install python-lzma  
+sudo apt-get install python-crypto  
 
 
 
