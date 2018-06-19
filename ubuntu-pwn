@@ -92,10 +92,10 @@ sudo apt-get remove --purge vim
 sudo apt-get remove --purge vim-gtk vim-doc cscope
 sudo apt-get clean
 
+（桌面，按Ctrl+Alt+T 打开命令终端）
 4.接下来我们安装vim-nox
 输入：
 sudo apt-get install vim-nox
-返回桌面，按Ctrl+Alt+T 打开命令终端
 输入:
 vim –version |grep python 
 查看vim是否支持python
@@ -107,7 +107,7 @@ sudo apt-get install vim-nox-py2。
 vim –version|grep python 
 查看此时vim是否支持python，若支持到此为止，若不支持，请执行
 
-终端输入：
+输入：
 sudo update-alternatives --config vim
 查看发现selection，输入数字来改变支持
 
@@ -201,7 +201,7 @@ git clone https://github.com/Gallopsled/pwntools-binutils
 sudo apt-get install software-properties-common
 sudo apt-add-repository ppa:pwntools/binutils
 sudo apt-get update
-sudo apt-get install binutils-arm-linux-gnu
+sudo apt-get install binutils-arm-linux-gnueabi
 
 3、安装Capstone（反汇编框架）
 输入：
