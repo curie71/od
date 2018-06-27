@@ -213,7 +213,16 @@ cd pwndbg
 gdb -q
 检验是否成功
 
-4.安装pwntools
+4.安装gdb-peda插件
+输入：
+git clone https://github.com/longld/peda.git ~/peda
+echo "source ~/peda/peda.py" >> ~/.gdbinit
+
+使用
+1.peda的一个实用命令checksec检测安全保护
+2.peda的另一个实用命令searchmem用搜索内存
+
+5.安装pwntools
 输入：
 git clone https://github.com/Gallopsled/pwntools
 cd pwntools
