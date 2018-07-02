@@ -70,6 +70,16 @@ sudo pip3 install --upgrade pip
 出现"Successfully installed pip-9.0.1"或其以上版本则成功
 如果失败，则需要增加 额外仓库 或者 上网下载安装包安装
 
+8.pip换源
+编辑配置文件, 如果没有, 新建一份。
+输入：
+vi ~/.pip/pip.conf  
+
+添加内容如下。
+输入：
+    [global]  
+    index-url = http://pypi.douban.com/simple  
+    trusted-host = pypi.douban.com  
 
 
 
@@ -150,13 +160,11 @@ sudo cp sources.list sources.list.bak
 
 就是将sources.list备份到sources.list.bak
 
-第二步：替换源（这里选用阿里云源）
-执行命令打开source.list文件
+第二步：替换源（这里选用阿里云源)
 输入：
-sudo vim /etc/apt/source.list
+sudo gedit ./sources.list
 
-
-把下面的复制到source.list中去，并覆盖原来的文件内容。
+把下面的复制到sources.list中去，并覆盖原来的文件内容。
 
 # deb cdrom:[Ubuntu 16.04 LTS _Xenial Xerus_ - Release amd64 (20160420.1)]/ xenial main restricted
 deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties
