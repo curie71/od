@@ -71,15 +71,16 @@ sudo pip3 install --upgrade pip
 如果失败，则需要增加 额外仓库 或者 上网下载安装包安装
 
 8.pip换源
-编辑配置文件, 如果没有, 新建一份。
-输入：
-vi ~/.pip/pip.conf  
+根目录创建.pip文件：
+mkdir ~/.pip
+        
+创建文件pip.conf：
+vim .pip/pip.conf
 
-添加内容如下。
-输入：
-    [global]  
-    index-url = http://pypi.douban.com/simple  
-    trusted-host = pypi.douban.com  
+进入编辑模式，复制信息：
+    [global]
+    index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+    trusted-host = pypi.tuna.tsinghua.edu.cn
 
 
 
