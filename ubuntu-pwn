@@ -57,15 +57,15 @@ python3 --version
      cd /usr/lib/python3/dist-packages/  
      sudo cp apt_pkg.cpython-35m-x86_64-linux-gnu.so apt_pkg.cpython-36m-x86_64-linux-gnu.so   
      
-7.安装 pip2 和 pip3 且更新至最新版本
+7.安装 pip2 和 pip3 且更新至最新版本(python只能选择一个版本）
 输入：（pip2）
 sudo apt-get install python-pip python-dev build-essential
-输入：（pip3）
-sudo apt-get install python3-pip
+#输入：（pip3）
+#sudo apt-get install python3-pip
 输入：（pip2升级）
 sudo pip install --upgrade pip
-输入：（pip3升级）
-sudo pip3 install --upgrade pip
+#输入：（pip3升级）
+#sudo pip3 install --upgrade pip
 
 出现"Successfully installed pip-9.0.1"或其以上版本则成功
 如果失败，则需要增加 额外仓库 或者 上网下载安装包安装
@@ -148,7 +148,7 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 重新打开vim即可看到效果
 
-6.换源（推荐）
+6.换源（可能推荐）
 第一步：备份原来的源文件
 输入：
 cd /etc/apt/  
@@ -222,7 +222,7 @@ cd pwndbg
 gdb -q
 检验是否成功
 
-4.安装gdb-peda插件
+4.安装gdb-peda插件（具有checksec，pattern等函数）
 输入：
 git clone https://github.com/longld/peda.git ~/peda
 echo "source ~/peda/peda.py" >> ~/.gdbinit
