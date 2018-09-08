@@ -267,7 +267,10 @@ git clone https://github.com/etingof/pyasn1
 cd pyasn1
 sudo python setup.py install
 
-
+6.安装one_gadget
+输入：
+sudo apt-get install ruby
+sudo gem install one_gadget
 
 ps：如果出现 timeoutError 问题，可能是没换源导致的延时，你可以重新安装或者换源
 
